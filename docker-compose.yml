@@ -1,0 +1,11 @@
+version: '3.6'
+services:
+  app:
+    image: openjdk:15
+    ports:
+      - 8080:8080
+    tty: true
+    volumes:
+      # cachedオプションはコンテナからの読込速度が早くなるかわりに、ホストの更新がコンテナに反映される場合に遅延が許可される
+      - ./server:/srv:cached
+    working_dir: /srv
